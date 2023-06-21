@@ -32,11 +32,10 @@ class Formater(HTMLParser):
             if info in Formater.company:
                 self.count = 0
                 self.current = info
-            else:
-                if self.count == 4:
-                    obj = {}
-                    obj[self.current] = self.obj
-                    self.data.append(obj)
-                    self.obj = {}
-                    self.count = -1
+            elif self.count == 4:
+                obj = {}
+                obj[self.current] = self.obj
+                self.data.append(obj)
+                self.obj = {}
+                self.count = -1
             self.count += 1
