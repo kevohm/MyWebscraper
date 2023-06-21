@@ -10,6 +10,7 @@ class Webscraper():
         self._current = None
 
     def fetchData(self, url):
+        print("======== Fetching =======")
         Webscraper._data = requests.get(url).content
         return self
     

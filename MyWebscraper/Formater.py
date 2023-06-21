@@ -28,18 +28,15 @@ class Formater(HTMLParser):
         if self.start:
             if self.count < 5:
                 self.obj[self.title[self.count]] = info
+
             if info in Formater.company:
-                if self.count < 5:
-                    obj = {}
-                    obj[self.current] = self.obj
-                    self.data.append(obj)
-                else:
-                    self.count = 0
-                    self.obj = {}
-                    self.current = info
+                self.count = 0
+                self.current = info
             else:
-                if self.count == 5:
+                if self.count == 4:
                     obj = {}
                     obj[self.current] = self.obj
                     self.data.append(obj)
+                    self.obj = {}
+                    self.count = -1
             self.count += 1
